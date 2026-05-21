@@ -7,24 +7,37 @@ export default function Page() {
     <main>
       <section className="heroSection">
         <div className="container">
-          <div className="heroMain">
-            <HeroSwiper />
-          </div>
+          <HeroSwiper />
         </div>
       </section>
 
       <section className="productsSection">
         <div className="container">
-          <div className="sectionTop">
+          <div className="sectionTitle">
             <h2>Populyar Məhsullar</h2>
             <p>Minlərlə məhsulu müqayisə et, ən uyğun qiyməti tap.</p>
           </div>
 
-          <div className="productsGrid">
+          <ul className="productsGrid">
             {ProductList.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <li key={product.id}>
+                <ProductCard product={product} />
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
+      </section>
+      <section className="discountedProductSection">
+        <div className="container">
+          <h2>Endirimli Məhsullar</h2>
+          <p>Minlərlə məhsulu müqayisə et, ən uyğun qiyməti tap.</p>
+          <ul className="productsGrid">
+            {ProductList.map((product) => (
+              <li key={product.id}>
+                <ProductCard product={product} />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>

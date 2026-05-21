@@ -247,31 +247,6 @@ header {
   }
 }
 
-.productsSection {
-  padding: 4rem 0;
-
-  .sectionTop {
-    margin-bottom: 2rem;
-
-    h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-    }
-
-    p {
-      font-size: 1.4rem;
-      color: #888;
-    }
-  }
-
-  .productsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
-    gap: 1.6rem;
-  }
-}
-
 .productCard {
   width: 100%;
   border: 0.5px solid #e0e0e0;
@@ -404,6 +379,154 @@ header {
 
     &:hover {
       background: #d0e6f9;
+    }
+  }
+}
+
+main {
+  .heroSection {
+    margin-top: 2rem;
+  }
+
+  .productsSection,
+  .discountedProductSection {
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #888;
+    }
+
+    .productsGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+      gap: 1.6rem;
+    }
+  }
+
+  .discountedProductSection {
+    margin-top: 4rem;
+  }
+}
+
+.footer {
+  background-color: #2b3647;
+  color: #fff;
+  margin-top: 6rem;
+
+  .footerTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5rem 0 4rem;
+    gap: 4rem;
+  }
+
+  .footerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .logo {
+      span {
+        font-size: 3.6rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: -1px;
+      }
+    }
+
+    .social {
+      p {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1.4rem;
+        color: #fff;
+      }
+
+      .socialList {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        li {
+          a {
+            width: 3.8rem;
+            height: 3.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            transition:
+              background 0.2s,
+              border-color 0.2s;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.1);
+              border-color: rgba(255, 255, 255, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footerRight {
+    .downloadTitle {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .storeList {
+      display: flex;
+      gap: 1.6rem;
+    }
+
+    .storeCard {
+      background: #2b3647;
+      border-radius: 1.2rem;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+      min-width: 5rem;
+
+      .storeBadge {
+        width: 100%;
+        height: 7.2rem;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .footerBottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.4rem 0;
+
+    p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+      line-height: 1.7;
+
+      a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: underline;
+
+        &:hover {
+          color: #fff;
+        }
+      }
     }
   }
 }
