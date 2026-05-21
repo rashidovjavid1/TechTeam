@@ -18,22 +18,14 @@ const HeroSlider = () => {
       >
         <SwiperSlide>
           <div className="slideItem">
-            <img src="/images/tozsoran.avif" alt="banner" />
+            <img src="/images/swiper4.jpg" alt="banner" />
             <div className="slideContent"></div>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
           <div className="slideItem">
-            <img src="/images/iphone.avif" alt="banner" />
-
-            <div className="slideContent"></div>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div className="slideItem">
-            <img src="/images/bicak.avif" alt="banner" />
+            <img src="/images/swiper1.jpg" alt="banner" />
 
             <div className="slideContent"></div>
           </div>
@@ -41,7 +33,15 @@ const HeroSlider = () => {
 
         <SwiperSlide>
           <div className="slideItem">
-            <img src="/images/50endirim.avif" alt="banner" />
+            <img src="/images/swiper2.jpg" alt="banner" />
+
+            <div className="slideContent"></div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="slideItem">
+            <img src="/images/swiper3.jpg" alt="banner" />
 
             <div className="slideContent"></div>
           </div>
