@@ -3,10 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f7fa;
+  background: var(--bg-body);
   padding: 2rem;
   position: relative;
   overflow: hidden;
+  transition: background 0.3s ease;
 
   &::before {
     content: "";
@@ -21,14 +22,17 @@
 }
 
 .authCard {
-  background: #fff;
-  border: 1px solid #e8e8e8;
+  background: var(--bg-header);
+  border: 1px solid var(--border-header);
   border-radius: 12px;
   width: 100%;
   max-width: 420px;
   padding: 2.4rem;
   position: relative;
   z-index: 1;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .authLogo {
@@ -38,22 +42,24 @@
   span {
     font-size: 2.2rem;
     font-weight: 600;
-    color: #1c1c1c;
+    color: var(--color-text);
+    transition: color 0.3s ease;
   }
 
   p {
     font-size: 1.4rem;
-    color: #888;
+    color: var(--color-store-name);
     margin-top: 4px;
   }
 }
 
 .authTabs {
   display: flex;
-  border: 1px solid #e8e8e8;
+  border: 1px solid var(--border-header);
   border-radius: 8px;
   margin-bottom: 1.8rem;
   overflow: hidden;
+  transition: border-color 0.3s ease;
 
   button {
     flex: 1;
@@ -62,7 +68,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    color: #888;
+    color: var(--color-store-name);
     transition: all 0.15s;
 
     &.active {
@@ -99,9 +105,13 @@
 }
 
 .googleBtn {
-  background: #fff;
-  color: #444;
-  border: 1px solid #e0e0e0;
+  background: var(--bg-search);
+  color: var(--color-text);
+  border: 1px solid var(--border-search);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .facebookBtn {
@@ -117,7 +127,7 @@
 
   span {
     font-size: 1.2rem;
-    color: #bbb;
+    color: var(--color-store-name);
     white-space: nowrap;
   }
 
@@ -126,7 +136,8 @@
     content: "";
     flex: 1;
     height: 1px;
-    background: #eee;
+    background: var(--border-header);
+    transition: background 0.3s ease;
   }
 }
 
@@ -137,27 +148,32 @@
     label {
       display: block;
       font-size: 1.2rem;
-      color: #555;
+      color: var(--color-category-item);
       margin-bottom: 6px;
+      transition: color 0.3s ease;
     }
 
     input {
       width: 100%;
       height: 42px;
-      border: 1px solid #e0e0e0;
+      border: 1px solid var(--border-search);
       border-radius: 8px;
       padding: 0 12px;
       font-size: 1.4rem;
-      color: #1c1c1c;
+      color: var(--color-text);
+      background: var(--bg-search);
       outline: none;
-      transition: border-color 0.15s;
+      transition:
+        border-color 0.15s,
+        background 0.3s ease,
+        color 0.3s ease;
 
       &:focus {
         border-color: #1e88ff;
       }
 
       &::placeholder {
-        color: #bbb;
+        color: var(--color-store-name);
       }
     }
   }
@@ -196,7 +212,7 @@
   .switchText {
     font-size: 1.3rem;
     text-align: center;
-    color: #888;
+    color: var(--color-store-name);
     margin-top: 1.2rem;
 
     span {

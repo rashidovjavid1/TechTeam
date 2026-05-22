@@ -66,12 +66,73 @@ ol {
   list-style: none;
 }
 
+:root {
+  --bg-body: #f7f8fa;
+  --color-text: #1c1c1c;
+  --bg-header: #fff;
+  --border-header: #e8edf2;
+  --bg-search: #f5f7fa;
+  --border-search: #e0e8f0;
+  --color-input: #364354;
+  --bg-category-left: #fafbfc;
+  --border-category: #f0f3f7;
+  --bg-dropdown: #fff;
+  --color-category-item: #444;
+  --bg-category-active: #eff6ff;
+  --bg-card: #fff;
+  --border-card: #eef0f4;
+  --bg-card-image: #fafbfc;
+  --color-product-name: #2c3345;
+  --color-store-name: #9aa0ac;
+  --color-price: #1c1c1c;
+  --color-price-arrow: #c8d0da;
+  --color-old-price: #b0b8c4;
+  --bg-saving: #f0fdf4;
+  --color-saving: #15803d;
+  --bg-compare: #eff6ff;
+  --toggle-bg: #f0f0f0;
+  --toggle-hover: #e0e0e0;
+  --toggle-color: #555;
+}
+
+[data-theme="dark"] {
+  --bg-body: #0f0f0f;
+  --color-text: #e8e8e8;
+  --bg-header: #161616;
+  --border-header: #2a2a2a;
+  --bg-search: #1e1e1e;
+  --border-search: #333;
+  --color-input: #c8d0da;
+  --bg-category-left: #1a1a1a;
+  --border-category: #2a2a2a;
+  --bg-dropdown: #1c1c1c;
+  --color-category-item: #b0b8c4;
+  --bg-category-active: #1a2a3a;
+  --bg-card: #1a1a1a;
+  --border-card: #2a2a2a;
+  --bg-card-image: #f5f5f5;
+  --color-product-name: #dce3ec;
+  --color-store-name: #666;
+  --color-price: #e8e8e8;
+  --color-price-arrow: #444;
+  --color-old-price: #555;
+  --bg-saving: #0f2a1a;
+  --color-saving: #4ade80;
+  --bg-compare: #0f1e30;
+  --toggle-bg: #2a2a2a;
+  --toggle-hover: #333;
+  --toggle-color: #f0c040;
+}
+
 body {
   overflow-x: hidden;
   line-height: 1.6;
-  background-color: #f7f8fa;
-  color: #1c1c1c;
+  background-color: var(--bg-body);
+  color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 a {
@@ -122,11 +183,14 @@ h6 {
 }
 
 header {
-  background: #fff;
+  background: var(--bg-header);
   padding: 2rem 0;
-  border-bottom: 1px solid #e8edf2;
+  border-bottom: 1px solid var(--border-header);
   position: relative;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
 
   .headerMain {
     display: flex;
@@ -170,18 +234,19 @@ header {
       .searchBox {
         width: 100%;
         height: 4.4rem;
-        border: 1.5px solid #e0e8f0;
+        border: 1.5px solid var(--border-search);
         border-radius: 10px;
         display: flex;
         overflow: hidden;
-        background: #f5f7fa;
+        background: var(--bg-search);
         transition:
           border-color 0.2s,
-          box-shadow 0.2s;
+          box-shadow 0.2s,
+          background 0.3s ease;
 
         &:focus-within {
           border-color: #1e88ff;
-          background: #fff;
+          background: var(--bg-header);
           box-shadow: 0 0 0 3px rgba(30, 136, 255, 0.1);
         }
 
@@ -189,7 +254,7 @@ header {
           flex: 1;
           padding: 0 1.6rem;
           font-size: 1.4rem;
-          color: #364354;
+          color: var(--color-input);
           background: transparent;
 
           &::placeholder {
@@ -216,7 +281,38 @@ header {
     .headerRight {
       display: flex;
       align-items: center;
+      gap: 1rem;
       flex-shrink: 0;
+
+      .themeToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.8rem;
+        height: 3.8rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-header);
+        background-color: var(--toggle-bg);
+        color: var(--toggle-color);
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease,
+          border-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--toggle-hover);
+        }
+
+        svg {
+          display: block;
+          transition: transform 0.4s ease;
+        }
+
+        &:hover svg {
+          transform: rotate(20deg);
+        }
+      }
 
       .loginBtn {
         height: 4.2rem;
@@ -250,19 +346,21 @@ header {
     left: 50%;
     transform: translateX(-50%);
     width: 80rem;
-    background: #fff;
-    border: 1px solid #e8edf2;
+    background: var(--bg-dropdown);
+    border: 1px solid var(--border-header);
     border-radius: 12px;
     display: flex;
     z-index: 100;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: background 0.3s ease;
 
     .categoryLeft {
       width: 26rem;
-      border-right: 1px solid #f0f3f7;
+      border-right: 1px solid var(--border-category);
       padding: 0.8rem 0;
-      background: #fafbfc;
+      background: var(--bg-category-left);
+      transition: background 0.3s ease;
 
       .categoryItem {
         display: flex;
@@ -271,14 +369,14 @@ header {
         padding: 1.1rem 1.8rem;
         cursor: pointer;
         font-size: 1.4rem;
-        color: #444;
+        color: var(--color-category-item);
         transition:
           background 0.15s,
           color 0.15s;
 
         &:hover,
         &.active {
-          background: #eff6ff;
+          background: var(--bg-category-active);
           color: #1e88ff;
         }
 
@@ -304,10 +402,10 @@ header {
       .categoryRightTitle {
         font-size: 1.5rem;
         font-weight: 600;
-        color: #1c1c1c;
+        color: var(--color-text);
         margin-bottom: 1.4rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid #f0f3f7;
+        border-bottom: 1px solid var(--border-category);
       }
 
       .subcategoryList {
@@ -316,7 +414,7 @@ header {
 
           a {
             font-size: 1.4rem;
-            color: #555;
+            color: var(--color-category-item);
             transition: color 0.15s;
             display: inline-block;
             padding: 0.3rem 0;
@@ -331,7 +429,7 @@ header {
       .popularSection {
         margin-top: 2rem;
         padding-top: 1.6rem;
-        border-top: 1px solid #f0f3f7;
+        border-top: 1px solid var(--border-category);
 
         p {
           font-size: 1.2rem;
@@ -349,8 +447,8 @@ header {
 
           a {
             font-size: 1.2rem;
-            color: #444;
-            background: #f0f3f7;
+            color: var(--color-category-item);
+            background: var(--border-category);
             padding: 5px 14px;
             border-radius: 20px;
             transition: all 0.15s;
@@ -409,14 +507,15 @@ header {
 
 .productCard {
   width: 100%;
-  border: 1px solid #eef0f4;
+  border: 1px solid var(--border-card);
   border-radius: 1.4rem;
   overflow: hidden;
-  background: #fff;
+  background: var(--bg-card);
   transition:
     border-color 0.2s,
     box-shadow 0.2s,
-    transform 0.2s;
+    transform 0.2s,
+    background 0.3s ease;
   cursor: pointer;
 
   &:hover {
@@ -428,11 +527,12 @@ header {
   .cardImage {
     position: relative;
     height: 24rem;
-    background: #fafbfc;
+    background: var(--bg-card-image);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #eef0f4;
+    border-bottom: 1px solid var(--border-card);
+    transition: background 0.3s ease;
 
     img {
       width: 100%;
@@ -458,8 +558,8 @@ header {
       right: 1rem;
       width: 3.2rem;
       height: 3.2rem;
-      background: #fff;
-      border: 1px solid #eef0f4;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -486,13 +586,13 @@ header {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      color: #2c3345;
+      color: var(--color-product-name);
     }
 
     .storeName {
       display: block;
       font-size: 1.1rem;
-      color: #9aa0ac;
+      color: var(--color-store-name);
       margin-top: 0.6rem;
     }
 
@@ -505,28 +605,28 @@ header {
       .currentPrice {
         font-size: 1.9rem;
         font-weight: 700;
-        color: #1c1c1c;
+        color: var(--color-price);
       }
 
       .priceArrow {
         font-size: 1.8rem;
-        color: #c8d0da;
+        color: var(--color-price-arrow);
       }
     }
 
     .oldPrice {
       font-size: 1.1rem;
-      color: #b0b8c4;
+      color: var(--color-old-price);
       text-decoration: line-through;
     }
 
     .savingBox {
-      background: #f0fdf4;
+      background: var(--bg-saving);
       border-radius: 8px;
       padding: 0.6rem 1rem;
       margin-top: 0.8rem;
       font-size: 1.1rem;
-      color: #15803d;
+      color: var(--color-saving);
       line-height: 1.5;
 
       strong {
@@ -541,7 +641,7 @@ header {
     width: calc(100% - 2.8rem);
     margin: 1rem 1.4rem 1.4rem;
     padding: 0.9rem;
-    background: #eff6ff;
+    background: var(--bg-compare);
     color: #1e88ff;
     font-size: 1.2rem;
     font-weight: 500;
@@ -572,7 +672,7 @@ main {
     h2 {
       font-size: 2.2rem;
       font-weight: 700;
-      color: #1c1c1c;
+      color: var(--color-text);
       margin-bottom: 0.6rem;
     }
 
