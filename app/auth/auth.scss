@@ -5,6 +5,19 @@
   justify-content: center;
   background: #f5f7fa;
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 600'%3E%3Cg opacity='0.04' stroke='%230a3d7a' stroke-width='1.2' fill='none'%3E%3Cpath d='M62 580 L62 230 Q62 60 122 22 Q136 15 136 15 Q150 15 164 22 Q224 60 224 230 L224 580 Z'/%3E%3Cpath d='M122 22 Q100 220 72 580'/%3E%3Cpath d='M130 18 Q115 220 95 580'/%3E%3Cpath d='M136 15 Q130 220 122 580'/%3E%3Cpath d='M143 15 Q140 220 145 580'/%3E%3Cpath d='M150 16 Q152 220 162 580'/%3E%3Cpath d='M158 19 Q168 220 182 580'/%3E%3Cpath d='M166 24 Q182 220 202 580'/%3E%3Cline x1='63' y1='100' x2='223' y2='115'/%3E%3Cline x1='63' y1='170' x2='223' y2='185'/%3E%3Cline x1='62' y1='260' x2='224' y2='272'/%3E%3Cline x1='62' y1='360' x2='224' y2='366'/%3E%3Cline x1='62' y1='460' x2='224' y2='462'/%3E%3Cpath d='M456 580 L456 300 Q456 160 500 128 Q511 122 511 122 Q522 122 533 128 Q577 160 577 300 L577 580 Z'/%3E%3Cpath d='M500 128 Q484 290 462 580'/%3E%3Cpath d='M506 124 Q495 290 476 580'/%3E%3Cpath d='M511 122 Q507 290 502 580'/%3E%3Cpath d='M517 122 Q516 290 520 580'/%3E%3Cpath d='M523 124 Q528 290 538 580'/%3E%3Cpath d='M529 128 Q542 290 554 580'/%3E%3Cline x1='457' y1='200' x2='576' y2='212'/%3E%3Cline x1='456' y1='280' x2='577' y2='290'/%3E%3Cline x1='456' y1='380' x2='577' y2='385'/%3E%3Cline x1='456' y1='480' x2='577' y2='482'/%3E%3Cpath d='M604 580 L604 340 Q604 225 630 204 Q637 199 637 199 Q644 199 651 204 Q677 225 677 340 L677 580 Z'/%3E%3Cpath d='M630 204 Q618 355 608 580'/%3E%3Cpath d='M634 201 Q626 355 618 580'/%3E%3Cpath d='M637 199 Q635 355 631 580'/%3E%3Cpath d='M641 199 Q642 355 646 580'/%3E%3Cpath d='M645 201 Q651 355 659 580'/%3E%3Cpath d='M650 204 Q660 355 670 580'/%3E%3Cline x1='605' y1='260' x2='676' y2='266'/%3E%3Cline x1='604' y1='340' x2='677' y2='344'/%3E%3Cline x1='604' y1='430' x2='677' y2='432'/%3E%3Cline x1='0' y1='581' x2='680' y2='581'/%3E%3Crect x='0' y='480' width='55' height='100'/%3E%3Crect x='8' y='440' width='35' height='40'/%3E%3Crect x='232' y='490' width='65' height='90'/%3E%3Crect x='302' y='500' width='50' height='80'/%3E%3Crect x='358' y='505' width='90' height='75'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 .authCard {
@@ -14,6 +27,8 @@
   width: 100%;
   max-width: 420px;
   padding: 2.4rem;
+  position: relative;
+  z-index: 1;
 }
 
 .authLogo {
@@ -57,6 +72,64 @@
   }
 }
 
+.socialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.6rem;
+}
+
+.socialBtn {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+.googleBtn {
+  background: #fff;
+  color: #444;
+  border: 1px solid #e0e0e0;
+}
+
+.facebookBtn {
+  background: #1877f2;
+  color: #fff;
+}
+
+.authDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 1.2rem 0;
+
+  span {
+    font-size: 1.2rem;
+    color: #bbb;
+    white-space: nowrap;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+}
+
 .authForm {
   .formField {
     margin-bottom: 1.2rem;
@@ -76,6 +149,7 @@
       padding: 0 12px;
       font-size: 1.4rem;
       color: #1c1c1c;
+      outline: none;
       transition: border-color 0.15s;
 
       &:focus {
@@ -96,6 +170,10 @@
     margin-top: -0.6rem;
     margin-bottom: 1rem;
     cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .submitBtn {
@@ -115,31 +193,11 @@
     }
   }
 
-  .authDivider {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 1.2rem 0;
-
-    span {
-      font-size: 1.2rem;
-      color: #bbb;
-      white-space: nowrap;
-    }
-
-    &::before,
-    &::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: #eee;
-    }
-  }
-
   .switchText {
     font-size: 1.3rem;
     text-align: center;
     color: #888;
+    margin-top: 1.2rem;
 
     span {
       color: #1e88ff;
