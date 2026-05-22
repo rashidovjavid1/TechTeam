@@ -1,0 +1,153 @@
+.authPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fa;
+  padding: 2rem;
+}
+
+.authCard {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  padding: 2.4rem;
+}
+
+.authLogo {
+  text-align: center;
+  margin-bottom: 1.8rem;
+
+  span {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1c1c1c;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: #888;
+    margin-top: 4px;
+  }
+}
+
+.authTabs {
+  display: flex;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  margin-bottom: 1.8rem;
+  overflow: hidden;
+
+  button {
+    flex: 1;
+    padding: 10px;
+    font-size: 1.4rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    transition: all 0.15s;
+
+    &.active {
+      background: #1e88ff;
+      color: #fff;
+    }
+  }
+}
+
+.authForm {
+  .formField {
+    margin-bottom: 1.2rem;
+
+    label {
+      display: block;
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      height: 42px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 0 12px;
+      font-size: 1.4rem;
+      color: #1c1c1c;
+      transition: border-color 0.15s;
+
+      &:focus {
+        border-color: #1e88ff;
+      }
+
+      &::placeholder {
+        color: #bbb;
+      }
+    }
+  }
+
+  .forgotLink {
+    display: block;
+    text-align: right;
+    font-size: 1.2rem;
+    color: #1e88ff;
+    margin-top: -0.6rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  .submitBtn {
+    width: 100%;
+    height: 44px;
+    background: #1e88ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #1677cc;
+    }
+  }
+
+  .authDivider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 1.2rem 0;
+
+    span {
+      font-size: 1.2rem;
+      color: #bbb;
+      white-space: nowrap;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+  }
+
+  .switchText {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #888;
+
+    span {
+      color: #1e88ff;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
