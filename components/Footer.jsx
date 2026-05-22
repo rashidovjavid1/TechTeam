@@ -1,37 +1,8 @@
 import Image from "next/image";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
 
-const socialLinks = [
-  { icon: <FaFacebookF />, href: "#" },
-  { icon: <FaTwitter />, href: "#" },
-  { icon: <FaLinkedinIn />, href: "#" },
-  { icon: <FaInstagram />, href: "#" },
-  { icon: <FaYoutube />, href: "#" },
-];
-
-const appStores = [
-  {
-    id: 1,
-    badge: "/icons/appstore.avif",
-    alt: "App Store",
-  },
-  {
-    id: 2,
-    badge: "/icons/playstore.avif",
-    alt: "Google Play",
-  },
-  {
-    id: 3,
-    badge: "/icons/appgallery.png",
-    alt: "AppGallery",
-  },
-];
+import { footerMobileIcons } from "@/app/constants/FooterMobileIcons";
+import Link from "next/link";
+import { socialLinks } from "@/app/constants/SocialLinks";
 
 export default function Footer() {
   return (
@@ -59,15 +30,17 @@ export default function Footer() {
           <div className="footerRight">
             <p className="downloadTitle">Mobil Tətbiqi Yüklə</p>
             <div className="storeList">
-              {appStores.map((store) => (
+              {footerMobileIcons.map((store) => (
                 <div key={store.id} className="storeCard">
-                  <Image
-                    src={store.badge}
-                    alt={store.alt}
-                    width={200}
-                    height={30}
-                    className="storeBadge"
-                  />
+                  <Link href="">
+                    <Image
+                      src={store.badge}
+                      alt={store.alt}
+                      width={500}
+                      height={100}
+                      className="storeBadge"
+                    />
+                  </Link>
                 </div>
               ))}
             </div>
