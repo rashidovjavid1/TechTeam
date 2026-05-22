@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { heroSlides } from "@/app/constants/Swiper";
 
 const HeroSlider = () => {
   return (
@@ -11,41 +12,19 @@ const HeroSlider = () => {
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
-        autoplay={{
-          delay: 5000,
-        }}
+        autoplay={{ delay: 5000 }}
         loop={true}
       >
-        <SwiperSlide>
-          <div className="slideItem">
-            <img src="/images/swiper4.jpg" alt="banner" />
-            <div className="slideContent"></div>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div className="slideItem">
-            <img src="/images/swiper1.jpg" alt="banner" />
-
-            <div className="slideContent"></div>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div className="slideItem">
-            <img src="/images/swiper2.jpg" alt="banner" />
-
-            <div className="slideContent"></div>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div className="slideItem">
-            <img src="/images/swiper3.jpg" alt="banner" />
-
-            <div className="slideContent"></div>
-          </div>
-        </SwiperSlide>
+        {heroSlides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div className="slideItem">
+              <a href={slide.link}>
+                <img src={slide.image} alt="banner" />
+              </a>
+              <div className="slideContent"></div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
